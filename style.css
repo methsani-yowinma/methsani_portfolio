@@ -914,3 +914,226 @@ img { max-width: 100%; display: block; }
   .footer__inner   { flex-direction: column; text-align: center; }
   .footer__socials { justify-content: center; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   ABOUT — 3-column layout with profile photo
+══════════════════════════════════════════════════════════════ */
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ── Profile Card ─────────────────────────────────────────── */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(34,211,238,0.18);
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(34,211,238,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top-left glow inside card */
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Scan ring wrapper ────────────────────────────────────── */
+.scan-ring {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+/* Photo itself */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 2px solid rgba(34,211,238,0.35);
+  box-shadow:
+    0 0 0 4px rgba(34,211,238,0.08),
+    0 0 30px rgba(34,211,238,0.20),
+    0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* Fallback placeholder */
+.profile-img-ph {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(34,211,238,0.06);
+  border: 2px solid rgba(34,211,238,0.25);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: rgba(34,211,238,0.4);
+}
+.profile-img-ph svg { width: 48px; height: 48px; }
+
+/* ── Scanning line animation ──────────────────────────────── */
+.scan-line {
+  position: absolute;
+  inset-inline: 4px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(34,211,238,0.0) 10%,
+    rgba(34,211,238,0.9) 50%,
+    rgba(34,211,238,0.0) 90%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  top: 0;
+  animation: scanMove 2.5s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+  /* Clip scan line to the circle */
+  clip-path: circle(50% at 50% 50%);
+}
+@keyframes scanMove {
+  0%   { top: 4px;   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 156px; opacity: 0; }
+}
+
+/* ── Corner bracket decorations ──────────────────────────── */
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 3;
+}
+.corner--tl { top: 4px;  left: 14px;  border-top: 2px solid var(--accent); border-left:  2px solid var(--accent); }
+.corner--tr { top: 4px;  right: 14px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+.corner--bl { bottom: 4px; left: 14px;  border-bottom: 2px solid var(--accent); border-left:  2px solid var(--accent); }
+.corner--br { bottom: 4px; right: 14px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+
+/* ── Card info below photo ────────────────────────────────── */
+.profile-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-align: center;
+}
+.profile-card__name {
+  font-family: var(--ff-heading);
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .06em;
+}
+.profile-card__role {
+  font-family: var(--ff-mono);
+  font-size: .7rem;
+  color: var(--accent);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.profile-card__status {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--ff-mono);
+  font-size: .68rem;
+  color: var(--green);
+  margin-top: .2rem;
+}
+.profile-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--green-glow);
+}
+
+/* ── Monospace ID tag ─────────────────────────────────────── */
+.profile-card__id {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(34,211,238,0.14);
+  border-radius: 6px;
+  padding: .35rem .75rem;
+  width: 100%;
+  justify-content: center;
+}
+.pid-key {
+  font-family: var(--ff-mono);
+  font-size: .6rem;
+  font-weight: 600;
+  color: var(--txt-dim);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.pid-sep { font-family: var(--ff-mono); font-size: .65rem; color: var(--txt-dimmer); }
+.pid-val { font-family: var(--ff-mono); font-size: .68rem; color: var(--primary-lt); }
+
+/* ── Social icons row ─────────────────────────────────────── */
+.profile-card__socials {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding-top: .25rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  width: 100%;
+  justify-content: center;
+}
+.profile-card__socials a {
+  color: var(--txt-dim);
+  transition: color 140ms ease, transform 260ms ease;
+  display: flex;
+}
+.profile-card__socials a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.profile-card__socials svg { width: 17px; height: 17px; }
+
+@media (max-width: 1100px) {
+  .about__layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about__photo {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+  }
+  .about__photo {
+    grid-column: 1;
+  }
+}

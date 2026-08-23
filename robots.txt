@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://methsaniportfolio.vercel.app/sitemap.xml

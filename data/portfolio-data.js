@@ -687,8 +687,8 @@
         period: 'Jan 2026 – Present',
         current: true,
         icon: 'crown',
-        journeyUrl: '/leadership/usj-it-association-co-chairperson',
         description: '',
+        experienceUrl: '/leadership/usj-it-association-co-chairperson/',
       },
       {
         title: 'Executive Board Member',
@@ -728,4 +728,106 @@
   };
 
   window.PORTFOLIO_DATA = Object.freeze({ projects, certifications, leadership });
+
+/* ─────────────────────── LEADERSHIP EXPERIENCE ───────────────────────
+   * Detail page: /leadership/usj-it-association-co-chairperson/
+   * Event facts (programme, tracks, mission, workshops, links, artwork) are
+   * the events' own published details. Role-specific lines come from the
+   * résumé. Leave a field "" / [] to hide it — never fill it with guesses.
+   * ──────────────────────────────────────────────────────────────────── */
+  const leadershipExperience = [
+    {
+      slug: 'usj-it-association-co-chairperson',
+      role: 'Co-Chairperson',
+      organization: 'Students’ Association of Information Technology',
+      institution: 'University of Sri Jayewardenepura',
+      period: 'Jan 2026 – Present',
+      sections: [
+        { id: 'sparsha-2026', label: 'Sparsha 2026' },
+        { id: 'dhack-26', label: 'DHACK’26' },
+        { id: 'workshop-series', label: 'Workshop Series' },
+      ],
+
+      sparsha: {
+        id: 'sparsha-2026',
+        title: 'Sparsha 2026 — Successfully Done!',
+        image: {
+          src: '/assets/leadership/sparsha-2026.webp', width: 1536, height: 1024,
+          alt: 'Sparsha 2026 collage: performers singing and dancing on stage, a band in front of the illuminated Sparsha logo screen, fireworks, and the crowd at the live concert',
+        },
+        status: 'Completed',
+        role: 'Co-Chairperson, Students’ Association of Information Technology, University of Sri Jayewardenepura',
+        experienceTitle: 'A talent show and a live concert',
+        summary: 'Sparsha 2026 brought together a talent show and a live concert, creating an unforgettable experience for everyone involved.',
+        highlights: [
+          { icon: 'sparkles', title: 'Talent show', body: 'One half of the Sparsha 2026 programme.' },
+          { icon: 'mic', title: 'Live concert', body: 'Brought together with the talent show in one event.' },
+          { icon: 'users', title: 'Organizing team', body: 'Co-chaired the organizing team behind the event.' },
+        ],
+        leadershipTitle: 'Leading the event, together',
+        responsibilities: [
+          'Planning and organizing the event as Co-Chairperson',
+          'Event coordination',
+          'Team building',
+          'Stakeholder coordination',
+        ],
+        /* Methsani's own reflection, in her words. Empty → placeholder. */
+        reflection: [],
+        teamwork: 'Brought to life through teamwork with contributors, supporters, performers, coordinators, and people working behind the scenes.',
+        outcome: 'Successfully completed.',
+      },
+
+      dhack: {
+        id: 'dhack-26',
+        title: 'DHACK’26',
+        subtitle: 'The Ultimate Designathon Challenge',
+        image: {
+          src: '/assets/leadership/dhack-26.webp', width: 1000, height: 1000,
+          alt: 'DHACK’26 participants, judges, and organizers gathered in front of the University of Sri Jayewardenepura board, under the banner ‘The Ultimate Designathon Challenge — Successfully Concluded’',
+        },
+        status: 'Successfully concluded',
+        role: 'Co-Chairperson — Students’ Association of Information Technology',
+        roleDetail: 'Co-chaired DHACK’26 for the Students’ Association of Information Technology, University of Sri Jayewardenepura.',
+        organizer: ['Department of Information Technology', 'University of Sri Jayewardenepura', 'Nugegoda, Sri Lanka'],
+        overviewTitle: 'A multi-category AI innovation challenge',
+        overview: 'DHACK’26 was designed as a multi-category AI innovation challenge where participants created sustainable, human-centered digital solutions — open to university teams, school students, and ReBrand participants.',
+        mission: 'To cultivate a culture of innovation among school students and university participants by empowering them to solve real-world challenges through creativity, collaboration, and human-centered design.',
+        focus: ['AI-assisted digital solutions', 'Sustainability', 'Human-centered design', 'Creativity', 'Collaboration', 'Innovation'],
+        tracks: [
+          { name: 'Inter-University — Innovation', icon: 'graduation-cap',
+            audience: 'Undergraduate teams from recognized universities',
+            requirements: ['Exactly 3 members', 'University, faculty, degree program, and student ID'] },
+          { name: 'InterSchool — Innovation', icon: 'school',
+            audience: 'School-level innovation track',
+            requirements: ['Exactly 5 members', 'School students', 'Teacher guidance', 'Parent / guardian contact details', 'One team per school'] },
+          { name: 'ReBrand Hackathon', icon: 'palette',
+            audience: 'Faculty-exclusive brand and UI/UX challenge for FMSC students at the University of Sri Jayewardenepura',
+            requirements: ['Exactly 5 FMSC students', '3 Business Information Systems students', '2 members from other FMSC departments'] },
+        ],
+        contributionTitle: 'Co-chairing DHACK’26',
+        leadershipThemes: ['Event coordination', 'Team building', 'Stakeholder coordination', 'Project coordination', 'Collaboration'],
+        /* Methsani's own hands-on work for DHACK, if any. Empty → hidden. */
+        contributions: [],
+        links: [
+          { label: 'DHACK on Facebook', href: 'https://www.facebook.com/share/1FGGHtX9Wv/?mibextid=wwXIfr', icon: 'facebook' },
+          { label: 'dhack.lk', href: 'https://dhack.lk', icon: 'arrow-up-right' },
+        ],
+      },
+
+      workshops: {
+        id: 'workshop-series',
+        kicker: 'DHACK’26',
+        intro: 'Four workshops spanning the path from framing a real-world problem to validating a user-centered solution.',
+        items: [
+          { title: 'Design Thinking for Impact', body: 'Frame real-world problems with empathy, research, and SDGs.' },
+          { title: 'AI-Enabled Product Strategy', body: 'Turn AI capabilities into usable, responsible digital products.' },
+          { title: 'UI Systems and Prototyping', body: 'Create polished interfaces, design systems, and prototypes.' },
+          { title: 'UX Validation', body: 'Test concepts, improve flows, and present user-centered evidence.' },
+        ],
+      },
+    },
+  ];
+
+  window.PORTFOLIO_DATA = Object.freeze({ projects, certifications, leadership, leadershipExperience });
 })();
+

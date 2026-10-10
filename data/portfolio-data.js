@@ -685,7 +685,7 @@
         events: ['Sparsha’26', 'DHack’26'],
         org: 'Students’ Association of Information Technology (S@IT)',
         period: 'Jan 2026 – Sep 2026',
-        current: true,
+        current: false,
         icon: 'crown',
         description: '',
         experienceUrl: '/leadership/usj-it-association-co-chairperson/',

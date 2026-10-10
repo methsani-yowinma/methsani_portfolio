@@ -1356,6 +1356,9 @@ img { max-width: 100%; display: block; }
 .ld-mem strong { display: block; color: var(--white); font-size: .88rem; }
 .ld-mem small { display: block; color: var(--txt-muted); font-size: .8rem; line-height: 1.5; }
 
+/* Leadership card → experience page link */
+.ld-card__more { margin-top: .9rem; align-self: flex-start; display: inline-flex; }
+
 @media (max-width: 900px) {
   .leadership__layout { grid-template-columns: 1fr; }
   .ld-aside { position: static; }

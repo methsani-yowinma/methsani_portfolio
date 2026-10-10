@@ -69,7 +69,7 @@
       liveUrl: 'https://trustora-dusky.vercel.app/',
       externalUrl: '',
       caseStudyUrl: '/projects/trustora/',
-      heroImage: { src: '/assets/Trustora Trust Passport Showcase.png', alt: 'Trustora storefront with a Digital Trust Passport' },
+      heroImage: { src: '/assets/Friendly Futuristic Robot Mascot.png', alt: 'Trustora storefront with a Digital Trust Passport' },
       caseStudySections: [
         {
           id: 'overview', title: 'Overview', icon: 'layout-dashboard',

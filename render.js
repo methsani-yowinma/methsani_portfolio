@@ -469,14 +469,20 @@
     const sections = p.caseStudySections || [];
     root.innerHTML = `
       <header class="cs-hero">
-        <div class="container">
-          ${backLink('/#projects', 'All projects')}
-          <div class="eyebrow"><span class="eyebrow__line"></span><span class="eyebrow__num">Case Study</span><span class="eyebrow__txt">${esc(p.category)}</span></div>
-          <h1 class="cs-title">${esc(p.title)}</h1>
-          ${p.subtitle ? `<p class="cs-subtitle">${esc(p.subtitle)}</p>` : ''}
-          <p class="cs-hero__lead">${esc(p.positioning || p.description)}</p>
-          ${ctas.length ? `<div class="cs-hero__ctas">${ctas.join('')}</div>` : ''}
-          <ul class="cs-tags" aria-label="Technologies">${(p.technologies || []).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+        <div class="container${p.heroImage && isUrl(p.heroImage.src) ? ' cs-hero__grid' : ''}">
+          <div class="cs-hero__text">
+            ${backLink('/#projects', 'All projects')}
+            <div class="eyebrow"><span class="eyebrow__line"></span><span class="eyebrow__num">Case Study</span><span class="eyebrow__txt">${esc(p.category)}</span></div>
+            <h1 class="cs-title">${esc(p.title)}</h1>
+            ${p.subtitle ? `<p class="cs-subtitle">${esc(p.subtitle)}</p>` : ''}
+            <p class="cs-hero__lead">${esc(p.positioning || p.description)}</p>
+            ${ctas.length ? `<div class="cs-hero__ctas">${ctas.join('')}</div>` : ''}
+            <ul class="cs-tags" aria-label="Technologies">${(p.technologies || []).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+          </div>
+          ${p.heroImage && isUrl(p.heroImage.src) ? `
+          <figure class="cs-hero__media">
+            <img src="${esc(p.heroImage.src)}" alt="${esc(p.heroImage.alt || p.title)}" loading="eager" decoding="async">
+          </figure>` : ''}
         </div>
       </header>
       <div class="container cs-layout">

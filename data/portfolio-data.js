@@ -687,7 +687,7 @@
         period: 'Jan 2026 – Present',
         current: true,
         icon: 'crown',
-        description: '',
+        description: '/leadership/usj-it-association-co-chairperson',
       },
       {
         title: 'Executive Board Member',
@@ -696,7 +696,7 @@
         period: 'Mar 2025 – Jan 2026',
         current: false,
         icon: 'users',
-        description: '',
+        description: 'https://lnkd.in/p/g5spdsxz',
       },
       {
         title: 'Organizing Committee Member',
@@ -705,7 +705,7 @@
         period: 'Jul 2025 – Nov 2025',
         current: false,
         icon: 'calendar-check',
-        description: '',
+        description: 'https://lnkd.in/p/gkGB9eQ6',
       },
       {
         title: 'Secretary',

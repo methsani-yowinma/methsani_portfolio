@@ -465,7 +465,7 @@
         'UI/UX design project presented as a high-fidelity, interactive Figma prototype.',
       description:
         'WorkPulse is a UI/UX design project, presented as a high-fidelity interactive prototype built in Figma.',
-      image: null,
+      image: { src: '/assets/WorkPulse Productivity App Showcase.png', alt: 'WorkPulse Prototype screenshot' },
       visual: { icon: 'figma', label: 'High-Fidelity Prototype' },
       report: [
         { key: 'DISCIPLINE', val: 'UI/UX Design' },

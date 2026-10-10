@@ -205,6 +205,7 @@
           <p class="ld-card__org">${esc(r.org)}</p>
           ${(r.events || []).length ? `<ul class="ld-card__events" aria-label="Events">${r.events.map((e) => `<li>${icon('calendar')} ${esc(e)}</li>`).join('')}</ul>` : ''}
           ${r.description ? `<p class="ld-card__desc">${esc(r.description)}</p>` : ''}
+          ${isUrl(r.experienceUrl) ? `<a href="${esc(r.experienceUrl)}" class="proj-link proj-link--primary ld-card__more" aria-label="View the ${esc(r.title)} leadership experience">View experience ${icon('arrow-right')}</a>` : ''}
         </article>
       </li>`;
   }
@@ -693,6 +694,152 @@
           </div>
         </section>
       </div>`;
+  }
+
+    /* ══════════════════════════════════════════════════════════════
+     PAGE: LEADERSHIP EXPERIENCE
+  ══════════════════════════════════════════════════════════════ */
+  const evImage = (im, cls = '') => `
+    <div class="lx-img ${cls}" style="aspect-ratio:${im.width} / ${im.height}">
+      ${isUrl(im.src)
+        ? `<img src="${esc(im.src)}" alt="${esc(im.alt)}" width="${im.width}" height="${im.height}" loading="lazy" decoding="async"
+             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'lx-img__ph',textContent:'Event photo coming soon'}))">`
+        : `<span class="lx-img__ph" role="img" aria-label="${esc(im.alt)}">Event photo coming soon</span>`}
+    </div>`;
+
+  const evSection = (kicker, title, body) => `
+    <section class="lx-sub reveal">
+      <p class="lx-kicker">${esc(kicker)}</p>
+      <h3 class="lx-h3">${esc(title)}</h3>
+      <div class="lx-sub__body">${body}</div>
+    </section>`;
+
+  const done = (label) => `<span class="lx-done">${icon('circle-check')} ${esc(label)}</span>`;
+
+  function lxSparsha(e) {
+    const reflection = (e.reflection || []).length
+      ? `<blockquote class="lx-quote__body">${e.reflection.map((t) => `<p>${esc(t)}</p>`).join('')}</blockquote>`
+      : `<p class="lx-quote__ph">${icon('pen-line')} Reflection will be added</p>`;
+    return `
+      <section class="lx-sec" id="${esc(e.id)}" aria-labelledby="${esc(e.id)}-title">
+        <p class="lx-num">01 — Sparsha 2026</p>
+        <h2 class="lx-h2" id="${esc(e.id)}-title"><span class="lx-h2__ico">${icon('drama')}</span>${esc(e.title)}</h2>
+        ${evImage(e.image, 'lx-img--wide reveal')}
+        <div class="lx-pills">${done(e.status)}<span class="lx-role-pill">Role · ${esc(e.role)}</span></div>
+
+        ${evSection('Event experience', e.experienceTitle, `
+          <p class="cs-p">${esc(e.summary)}</p>
+          <ul class="lx-cards lx-cards--3">${e.highlights.map((h) => `
+            <li class="lx-card">${icon(h.icon)}<h4>${esc(h.title)}</h4><p>${esc(h.body)}</p></li>`).join('')}</ul>`)}
+
+        ${evSection('Leadership & teamwork', e.leadershipTitle, `
+          <ul class="lx-resp">${e.responsibilities.map((r) => `<li><span class="lx-dot" aria-hidden="true"></span>${esc(r)}</li>`).join('')}</ul>
+          <figure class="lx-quote">
+            <span class="lx-quote__mark" aria-hidden="true">${icon('quote')}</span>
+            <figcaption class="lx-kicker">Reflection</figcaption>
+            ${reflection}
+          </figure>
+          <div class="lx-cards lx-cards--2">
+            <div class="lx-card">${icon('heart-handshake')}<h4>Teamwork</h4><p>${esc(e.teamwork)}</p></div>
+            <div class="lx-card lx-card--ok">${icon('circle-check')}<h4>Outcome</h4><p>${esc(e.outcome)}</p></div>
+          </div>`)}
+      </section>`;
+  }
+
+  function lxDhack(e) {
+    const contributions = (e.contributions || []).length ? `
+      <p class="lx-kicker lx-kicker--muted">Also built for DHACK</p>
+      <ul class="lx-cards lx-cards--2">${e.contributions.map((c) => `
+        <li class="lx-card"><h4>${esc(c.title)}</h4><p>${esc(c.body)}</p>
+          ${isUrl(c.href) ? `<a href="${esc(c.href)}" class="lx-link" ${ext(c.title)}>${esc(c.label || 'View')} ${icon('arrow-up-right')}</a>` : ''}</li>`).join('')}</ul>` : '';
+    return `
+      <section class="lx-sec" id="${esc(e.id)}" aria-labelledby="${esc(e.id)}-title">
+        <p class="lx-num">02 — ${esc(e.title)}</p>
+        <h2 class="lx-h2" id="${esc(e.id)}-title">${esc(e.subtitle)} ${esc(e.title)}</h2>
+
+        <div class="lx-split reveal">
+          ${evImage(e.image, 'lx-img--square')}
+          <div>
+            ${done(e.status)}
+            <dl class="lx-facts">
+              <div class="lx-fact lx-fact--role"><dt>${icon('crown')} My role</dt><dd><strong>${esc(e.role)}</strong></dd><dd>${esc(e.roleDetail)}</dd></div>
+              <div class="lx-fact"><dt>Organized by</dt><dd>${esc(e.organizer.join(', '))}</dd></div>
+            </dl>
+            <div class="lx-ext">${e.links.filter((l) => isUrl(l.href)).map((l) => `
+              <a href="${esc(l.href)}" class="lx-ext__pill" ${ext(l.label)}>${l.icon === 'facebook' ? icon('facebook') : ''} ${esc(l.label)} ${l.icon !== 'facebook' ? icon('arrow-up-right') : ''}</a>`).join('')}</div>
+          </div>
+        </div>
+
+        ${evSection('Overview', e.overviewTitle, `
+          <p class="cs-p">${esc(e.overview)}</p>
+          <figure class="lx-mission"><figcaption class="lx-kicker">${icon('target')} Mission</figcaption>
+            <blockquote>“${esc(e.mission)}”</blockquote></figure>
+          <p class="lx-kicker lx-kicker--muted">Core focus</p>
+          <ul class="lx-chips">${e.focus.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>`)}
+
+        ${evSection('Competition tracks', 'Three tracks, three audiences', `
+          <ul class="lx-cards lx-cards--3">${e.tracks.map((t) => `
+            <li class="lx-card lx-track">
+              <span class="lx-track__ico">${icon(t.icon)}</span>
+              <h4>${esc(t.name)}</h4><p>${esc(t.audience)}</p>
+              <ul class="lx-track__req">${t.requirements.map((r) => `<li><span class="lx-dot" aria-hidden="true"></span>${esc(r)}</li>`).join('')}</ul>
+            </li>`).join('')}</ul>`)}
+
+        ${evSection('My contribution', e.contributionTitle, `
+          <div class="lx-contrib">
+            <p class="lx-kicker">${icon('crown')} Co-Chairperson</p>
+            <p class="lx-contrib__role">${esc(e.role)}</p>
+            <p class="cs-p">${esc(e.roleDetail)}</p>
+            <ul class="lx-chips lx-chips--accent" aria-label="Leadership areas">${e.leadershipThemes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+          </div>
+          ${contributions}`)}
+      </section>`;
+  }
+
+  function lxWorkshops(w) {
+    return `
+      <section class="lx-sec" id="${esc(w.id)}" aria-labelledby="${esc(w.id)}-title">
+        <p class="lx-num">03 — ${esc(w.kicker)}</p>
+        <h2 class="lx-h2" id="${esc(w.id)}-title">Workshop Series</h2>
+        <p class="cs-p">${esc(w.intro)}</p>
+        <div class="lx-tree">
+          <span class="lx-tree__root">${icon('lightbulb')} Workshop Series</span>
+          <ol class="lx-tree__list">${w.items.map((it, i) => `
+            <li class="lx-tree__item reveal">
+              <div class="lx-ws"><span class="lx-ws__n">${pad(i + 1)}</span>
+                <div><p class="lx-ws__k">Workshop ${i + 1}</p><h3>${esc(it.title)}</h3><p>“${esc(it.body)}”</p></div></div>
+            </li>`).join('')}</ol>
+        </div>
+      </section>`;
+  }
+
+  function renderLeadershipDetail(root, x) {
+    const back = `<a href="/#leadership" class="cs-back">${icon('arrow-left')} Back to Leadership</a>`;
+    root.innerHTML = `
+      <article class="lx">
+        <div class="container lx-wrap">
+          ${back}
+          <header class="lx-hero">
+            <span class="lx-hero__ico">${icon('crown')}</span>
+            <div>
+              <p class="lx-kicker">Leadership Experience · ${esc(x.period)}</p>
+              <h1 class="lx-title">${esc(x.role)}</h1>
+              <p class="lx-hero__org">${esc(x.organization)}</p>
+              <p class="lx-hero__inst">${esc(x.institution)}</p>
+            </div>
+          </header>
+          <nav class="lx-nav" aria-label="Sections on this page">
+            <p class="lx-kicker lx-kicker--muted">On this page</p>
+            <ul>${x.sections.map((s) => `<li><a href="#${esc(s.id)}">${esc(s.label)}</a></li>`).join('')}</ul>
+          </nav>
+          <div class="lx-body">
+            ${lxSparsha(x.sparsha)}
+            ${lxDhack(x.dhack)}
+            ${lxWorkshops(x.workshops)}
+          </div>
+          <div class="lx-foot">${back}</div>
+        </div>
+      </article>`;
   }
 
   /* ══════════════════════════════════════════════════════════════

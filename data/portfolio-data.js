@@ -564,7 +564,6 @@
       statusLabel: 'In Progress',
       description: 'Networking fundamentals, routing & switching, IP connectivity, and network security essentials.',
       journeyUrl: '/certifications/ccna/',
-      /* Evidence & Credentials — replace "" with real profile URLs. */
       netacadUrl: 'https://www.netacad.com/profile?tab=badges',
       credlyProfileUrl: 'https://www.credly.com/users/methsani-yowinma',
       stages: [
@@ -575,7 +574,7 @@
           status: 'completed',
           description: 'First stage of the CCNA pathway, covering networking foundations.',
           certificateUrl: 'https://www.netacad.com/certificates/?issuanceId=ec478460-b6b6-4f80-9381-ab47a2ef34dd',
-          certificateImage: '/assets/CCNA - Introduction to Networks.pdf',
+          certificateImage: '/assets/CCNA - Introduction to Networks.png',
           credlyUrl: 'https://www.credly.com/badges/0a7cadf5-db10-4782-8078-8617f516610c/public_url',
           credlyBadgeImage: '/assets/CCNA - Introduction to Networks Badge.png',
         },
@@ -586,7 +585,7 @@
           status: 'completed',
           description: 'Second stage of the CCNA pathway, building on the networking foundations.',
           certificateUrl: 'https://www.netacad.com/certificates/?issuanceId=ec478460-b6b6-4f80-9381-ab47a2ef34dd',
-          certificateImage: '/assets/CCNA - Switching, Routing, and Wireless Essentials.pdf',
+          certificateImage: '/assets/CCNA - Switching, Routing, and Wireless Essentials.png',
           credlyUrl: 'https://www.credly.com/badges/49a1cdc5-efe5-4794-b0e6-dd4fe92c8bef/public_url',
           credlyBadgeImage: '/assets/CCNA - Switching, Routing, and Wireless Essentials Badge.png',
         },

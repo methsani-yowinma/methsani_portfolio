@@ -687,7 +687,8 @@
         period: 'Jan 2026 – Present',
         current: true,
         icon: 'crown',
-        description: '/leadership/usj-it-association-co-chairperson',
+        journeyUrl: '/leadership/usj-it-association-co-chairperson',
+        description: '',
       },
       {
         title: 'Executive Board Member',

@@ -767,8 +767,7 @@
           'Team building',
           'Stakeholder coordination',
         ],
-        /* Methsani's own reflection, in her words. Empty → placeholder. */
-        reflection: [],
+        reflection: ['Proud to have successfully completed Sparsha 2026 as the Co-Chairperson of the Sparsha 2026 that organized Student Association of Information Technology, University of Sri Jayewardenepura (USJ). From planning and organizing to performing on stage, this journey challenged us to lead under pressure, make quick decisions, manage responsibilities, and work together as a team. Sparsha 2026 brought together a talent show and a live concert, creating an unforgettable experience for everyone involved. Being part of both the organizing team and the performance made this event even more meaningful. What started as an idea became a reality through countless hours of teamwork, dedication, and commitment. A huge thank you to everyone who contributed, supported, performed, coordinated, and worked behind the scenes to make Sparsha 2026 a success'],
         teamwork: 'Brought to life through teamwork with contributors, supporters, performers, coordinators, and people working behind the scenes.',
         outcome: 'Successfully completed.',
       },
@@ -802,8 +801,7 @@
         ],
         contributionTitle: 'Co-chairing DHACK’26',
         leadershipThemes: ['Event coordination', 'Team building', 'Stakeholder coordination', 'Project coordination', 'Collaboration'],
-        /* Methsani's own hands-on work for DHACK, if any. Empty → hidden. */
-        contributions: [],
+        contributions: ['Leadership & Team Coordination: Cross-functional collaboration and committee coordination. Project & Event Management : Planning, milestones, competition stages and execution. Stakeholder Engagement : Coordination with participants, judges and external parties.'],
         links: [
           { label: 'DHACK on Facebook', href: 'https://www.facebook.com/share/1FGGHtX9Wv/?mibextid=wwXIfr', icon: 'facebook' },
           { label: 'dhack.lk', href: 'https://dhack.lk', icon: 'arrow-up-right' },

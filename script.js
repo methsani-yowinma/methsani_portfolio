@@ -55,6 +55,8 @@ if (window.matchMedia('(pointer: fine)').matches) {
    2. CANVAS PARTICLE NETWORK — blue on white
 ───────────────────────────────────────────────────────────── */
 const canvas = document.getElementById('heroCanvas');
+/* The hero (canvas + terminal) only exists on the home page. */
+if (canvas) {
 const ctx    = canvas.getContext('2d');
 
 let particles = [];
@@ -118,6 +120,7 @@ function drawParticles() {
   requestAnimationFrame(drawParticles);
 }
 drawParticles();
+}
 
 /* ─────────────────────────────────────────────────────────────
    3. STICKY NAV + ACTIVE LINK
@@ -204,7 +207,7 @@ function typewriter() {
   }
   setTimeout(typewriter, deleting ? 35 : 72);
 }
-setTimeout(typewriter, 1400);
+if (terminalEl) setTimeout(typewriter, 1400);
 
 /* ─────────────────────────────────────────────────────────────
    6. SCROLL REVEAL

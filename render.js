@@ -754,7 +754,7 @@
 
   function lxDhack(e) {
     const contributions = (e.contributions || []).length ? `
-      <p class="lx-kicker lx-kicker--muted">Also built for DHACK</p>
+      /*<p class="lx-kicker lx-kicker--muted">Also built for DHACK</p>*/
       <ul class="lx-cards lx-cards--2">${e.contributions.map((c) => `
         <li class="lx-card"><h4>${esc(c.title)}</h4><p>${esc(c.body)}</p>
           ${isUrl(c.href) ? `<a href="${esc(c.href)}" class="lx-link" ${ext(c.title)}>${esc(c.label || 'View')} ${icon('arrow-up-right')}</a>` : ''}</li>`).join('')}</ul>` : '';

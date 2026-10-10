@@ -671,7 +671,7 @@
     },
   ];
 
-  /* ──────────────────────────── LEADERSHIP ────────────────────────────
+   /* ──────────────────────────── LEADERSHIP ────────────────────────────
    * Source: "Leadership & Volunteering" and "Certifications & Memberships"
    * in the résumé PDF. Roles are listed in the résumé's order.
    *   current: true  → shows the "Current" marker
@@ -697,7 +697,7 @@
         period: 'Mar 2025 – Jan 2026',
         current: false,
         icon: 'users',
-        description: 'https://lnkd.in/p/g5spdsxz',
+        description: '',
       },
       {
         title: 'Organizing Committee Member',
@@ -706,7 +706,7 @@
         period: 'Jul 2025 – Nov 2025',
         current: false,
         icon: 'calendar-check',
-        description: 'https://lnkd.in/p/gkGB9eQ6',
+        description: '',
       },
       {
         title: 'Secretary',
@@ -727,9 +727,7 @@
     competencies: ['Event coordination', 'Team building', 'Stakeholder coordination', 'Project coordination', 'Agile/Scrum collaboration', 'Communication'],
   };
 
-  window.PORTFOLIO_DATA = Object.freeze({ projects, certifications, leadership });
-
-/* ─────────────────────── LEADERSHIP EXPERIENCE ───────────────────────
+  /* ─────────────────────── LEADERSHIP EXPERIENCE ───────────────────────
    * Detail page: /leadership/usj-it-association-co-chairperson/
    * Event facts (programme, tracks, mission, workshops, links, artwork) are
    * the events' own published details. Role-specific lines come from the
@@ -830,4 +828,3 @@
 
   window.PORTFOLIO_DATA = Object.freeze({ projects, certifications, leadership, leadershipExperience });
 })();
-

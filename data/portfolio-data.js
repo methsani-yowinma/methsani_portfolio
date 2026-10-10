@@ -53,7 +53,7 @@
         'An AI-assisted, evidence-based digital trust platform for social commerce. Trustora helps customers evaluate SMEs through Digital Trust Passports while providing businesses with storefronts, products, orders, reviews, complaints and trust-building workflows.',
       description:
         'An AI-assisted, evidence-based digital trust platform for social commerce. Trustora helps customers evaluate SMEs through Digital Trust Passports while providing businesses with storefronts, products, orders, reviews, complaints and trust-building workflows.',
-      image: null,
+      image: { src: '/assets/Trustora Trust Passport Showcase.png', alt: 'Trustora System screenshot' },
       visual: { icon: 'shield-check', label: 'Digital Trust Passport' },
       report: [
         { key: 'STACK', val: 'Next.js · FastAPI · Supabase' },
